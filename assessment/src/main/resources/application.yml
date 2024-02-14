@@ -1,0 +1,38 @@
+server:
+  port: 8747
+  servlet:
+    context-path: /etiqa
+
+spring:
+  profiles:
+    active: default
+  application:
+    name: etiqa-assessment
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/etiqa?createDatabaseIfNotExist=true
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        database: etiqa
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        open-in-view: false
+        generate-ddl: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          time_zone: Asia/Kuala_Lumpur
+        ddl-auto: update
+        show_sql: false
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+        enabled: true
+  enabled: true
